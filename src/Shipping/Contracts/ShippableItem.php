@@ -2,7 +2,7 @@
 
 namespace Madnest\Madstore\Shipping\Contracts;
 
-interface ShippingItem
+interface ShippableItem
 {
     /**
      * Get Shipping option title
