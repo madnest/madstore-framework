@@ -6,24 +6,6 @@ use Madnest\Madstore\Core\Response;
 
 class PaymentResponse extends Response
 {
-    public int $statusCode;
-
-    public string $status;
-
-    public string $orderNumber;
-
-    public int $amount;
-
-    public string $currency;
-
-    public array $payer;
-
-    public bool $redirect;
-
-    public string $redirectUrl;
-
-    public array $errors;
-
     public function __construct(int $statusCode, string $status)
     {
         $this->statusCode = $statusCode;
