@@ -24,11 +24,10 @@ class PaymentResponse extends Response
 
     public array $errors;
 
-    public function __construct(
-        int $statusCode,
-        string $status
-    ) {
+    public function __construct(int $statusCode, string $status)
+    {
         $this->statusCode = $statusCode;
+
         $this->status = $status;
     }
 
