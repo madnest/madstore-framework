@@ -5,37 +5,44 @@ namespace Madnest\Madstore\Payment\Contracts;
 interface PurchasableItem
 {
     /**
-     * Get purchasable item title
+     * Get PurchasableItem title
      *
      * @return string
      */
     public function getTitle(): string;
 
     /**
-     * Get purchasable item URL
+     * Get PurchasableItem URL
      *
      * @return string
      */
     public function getUrl(): string;
 
     /**
-     * Get purchasable item EAN
+     * Get PurchasableItem EAN
      *
      * @return string
      */
     public function getEan(): string;
 
     /**
-     * Get purchasable option price
+     * Get PurchasableItem price
      *
      * @return integer
      */
     public function getAmount(): int;
 
     /**
-     * Get purchasable item quantity
+     * Get PurchasableItem quantity
      *
      * @return integer
      */
     public function getQuantity(): int;
+
+    /**
+     * Get PurchasableItem VAT rate
+     *
+     * @return integer
+     */
+    public function getVATRate(): int;
 }
