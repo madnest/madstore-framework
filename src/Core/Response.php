@@ -117,4 +117,14 @@ abstract class Response implements ArrayAccess
     {
         return $this->offsetExists($offset) ? $this->response[$offset] : null;
     }
+
+    /**
+     * Return response in array
+     *
+     * @return void
+     */
+    public function &toArray(): array
+    {
+        return $this->response;
+    }
 }
