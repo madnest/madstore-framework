@@ -22,6 +22,8 @@ class PaymentResponse extends Response
 
     public string $redirectUrl;
 
+    public array $errors;
+
     public function __construct(
         int $statusCode,
         string $status,
@@ -30,7 +32,8 @@ class PaymentResponse extends Response
         string $currency,
         array $payer,
         string $redirectUrl,
-        bool $redirect
+        bool $redirect,
+        array $errors
     ) {
         $this->statusCode = $statusCode;
         $this->status = $status;
@@ -40,5 +43,6 @@ class PaymentResponse extends Response
         $this->payer = $payer;
         $this->redirectUrl = $redirectUrl;
         $this->redirect = $redirect;
+        $this->errors = $errors;
     }
 }
