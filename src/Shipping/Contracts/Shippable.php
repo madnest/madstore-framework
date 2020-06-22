@@ -11,7 +11,7 @@ interface Shippable
      *
      * @return boolean
      */
-    public function hasPaymentOption(): bool;
+    public function hasShippingOption(): bool;
 
     /**
      * Get Shipping option
