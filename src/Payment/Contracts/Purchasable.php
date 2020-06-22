@@ -4,6 +4,7 @@ namespace Madnest\Madstore\Payment\Contracts;
 
 use Illuminate\Support\Collection;
 use Madnest\Madstore\Payment\Contracts\HasPayerInfo;
+use Madnest\Madstore\Shipping\Contracts\ShippingOption;
 
 interface Purchasable
 {
@@ -69,4 +70,11 @@ interface Purchasable
      * @return HasPayerInfo
      */
     public function getPayerInfo(): HasPayerInfo;
+
+    /**
+     * Get ShippingOption
+     *
+     * @return ShippingOption
+     */
+    public function getShippingOption(): ShippingOption;
 }
