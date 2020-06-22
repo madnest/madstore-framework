@@ -12,4 +12,5 @@ final class PaymentStatus
     const TIMEOUTED = 'TIMEOUTED';
     const REFUNDED = 'REFUNDED';
     const PARTIALLY_REFUNDED = 'PARTIALLY_REFUNDED';
+    const ERROR = 'ERROR';
 }
