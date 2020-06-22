@@ -12,20 +12,6 @@ interface PurchasableItem
     public function getTitle(): string;
 
     /**
-     * Get PurchasableItem URL
-     *
-     * @return string
-     */
-    public function getUrl(): string;
-
-    /**
-     * Get PurchasableItem EAN
-     *
-     * @return string
-     */
-    public function getEan(): string;
-
-    /**
      * Get PurchasableItem price
      *
      * @return integer
