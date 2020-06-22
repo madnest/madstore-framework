@@ -19,7 +19,7 @@ interface Purchasable
      *
      * @return string
      */
-    public function getCurrency(): string;
+    public function getCurrency();
 
     /**
      * Get UUID
@@ -64,9 +64,9 @@ interface Purchasable
     public function getItems(): Collection;
 
     /**
-     * Get payer data
+     * Get payer info
      *
-     * @return HasPayerData
+     * @return HasPayerInfo
      */
-    public function getPayerData(): HasPayerInfo;
+    public function getPayerInfo(): HasPayerInfo;
 }
