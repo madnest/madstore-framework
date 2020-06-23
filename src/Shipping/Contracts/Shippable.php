@@ -18,5 +18,5 @@ interface Shippable
      *
      * @return ShippingOption
      */
-    public function shippingOption(): ShippingOption;
+    public function shippingOption(): ?ShippingOption;
 }

@@ -16,5 +16,5 @@ interface Payable
      *
      * @return PaymentOption
      */
-    public function paymentOption(): PaymentOption;
+    public function paymentOption(): ?PaymentOption;
 }
