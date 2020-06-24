@@ -13,11 +13,26 @@ class PaymentResponse extends Response
         $this->status = $status;
     }
 
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
     public function setOrderNumber(string $orderNumber): self
     {
         $this->orderNumber = $orderNumber;
 
         return $this;
+    }
+
+    public function getOrderNumber(): string
+    {
+        return $this->orderNumber;
     }
 
     public function setAmount(string $amount): self
@@ -27,38 +42,68 @@ class PaymentResponse extends Response
         return $this;
     }
 
-    public function setCurrency(string $currency)
+    public function getAmount(): string
+    {
+        return $this->amount;
+    }
+
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
 
         return $this;
     }
 
-    public function setPayer(array $payer)
+    public function getCurrency(): array
+    {
+        return $this->currency;
+    }
+
+    public function setPayer(array $payer): self
     {
         $this->payer = $payer;
 
         return $this;
     }
 
-    public function setRedirectUrl(string $redirectUrl)
+    public function getPayer(): string
+    {
+        return $this->payer;
+    }
+
+    public function setRedirectUrl(string $redirectUrl): self
     {
         $this->redirectUrl = $redirectUrl;
 
         return $this;
     }
 
-    public function setRedirect(bool $redirect)
+    public function getRedirectUrl(): bool
+    {
+        return $this->redirectUrl;
+    }
+
+    public function setRedirect(bool $redirect): self
     {
         $this->redirect = $redirect;
 
         return $this;
     }
 
-    public function setErrors(array $errors)
+    public function getRedirect(): array
+    {
+        return $this->redirect;
+    }
+
+    public function setErrors(array $errors): self
     {
         $this->errors = $errors;
 
         return $this;
+    }
+
+    public function getErrors(): array
+    {
+        return $this->errors;
     }
 }
