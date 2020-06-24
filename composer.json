@@ -54,11 +54,5 @@
                 "Madstore": "Madnest\\Madstore\\MadstoreFacade"
             }
         }
-    },
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "../madstore-gopay"
-        }
     }
 }
