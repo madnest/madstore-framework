@@ -90,7 +90,7 @@ class PaymentResponse extends Response
         return $this;
     }
 
-    public function getRedirectUrl(): bool
+    public function getRedirectUrl(): string
     {
         return $this->redirectUrl;
     }
