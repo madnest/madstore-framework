@@ -59,6 +59,18 @@ class PaymentResponse extends Response
         return $this->currency;
     }
 
+    public function setPaymentMethod(string $paymentMethod): self
+    {
+        $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
+
+    public function getPaymentMethod(): string
+    {
+        return $this->paymentMethod;
+    }
+
     public function setPayer(array $payer): self
     {
         $this->payer = $payer;
