@@ -13,12 +13,12 @@ class PaymentResponse extends Response
         $this->status = $status;
     }
 
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }
@@ -35,14 +35,14 @@ class PaymentResponse extends Response
         return $this->orderNumber;
     }
 
-    public function setAmount(string $amount): self
+    public function setAmount(int $amount): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    public function getAmount(): string
+    public function getAmount(): int
     {
         return $this->amount;
     }
@@ -54,7 +54,7 @@ class PaymentResponse extends Response
         return $this;
     }
 
-    public function getCurrency(): array
+    public function getCurrency(): string
     {
         return $this->currency;
     }
@@ -102,7 +102,7 @@ class PaymentResponse extends Response
         return $this;
     }
 
-    public function getRedirect(): array
+    public function getRedirect(): bool
     {
         return $this->redirect;
     }
