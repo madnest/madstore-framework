@@ -2,6 +2,7 @@
 
 namespace Madnest\Madstore\Payment\Contracts;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Madnest\Madstore\Payment\Contracts\HasPayerInfo;
 use Madnest\Madstore\Shipping\Contracts\ShippableItem;
@@ -9,6 +10,13 @@ use Madnest\Madstore\Shipping\Contracts\ShippingOption;
 
 interface Purchasable
 {
+    /**
+     * Get model
+     *
+     * @return void
+     */
+    public function getModel(): Model;
+
     /**
      * Get language
      *
@@ -85,4 +93,18 @@ interface Purchasable
      * @return ShippableItem
      */
     public function getShippableItem(): ShippableItem;
+
+    /**
+     * Get PaymentOption
+     *
+     * @return PaymentOption
+     */
+    public function getPaymentOption(): PaymentOption;
+
+    /**
+     * Get PayableItem
+     *
+     * @return PayableItem
+     */
+    public function getPayableItem(): PayableItem;
 }

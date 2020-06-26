@@ -1,25 +1,25 @@
 <?php
 
-namespace Madnest\Madstore\Shipping\Contracts;
+namespace Madnest\Madstore\Payment\Contracts;
 
-interface ShippableItem
+interface PayableItem
 {
     /**
-     * Get Shipping option title
+     * Get Payment option title
      *
      * @return string
      */
     public function getTitle(): string;
 
     /**
-     * Get Shipping option price
+     * Get Payment option amount
      *
      * @return integer
      */
     public function getAmount(): int;
 
     /**
-     * Get Shipping option price
+     * Get Payment option price
      *
      * @return integer
      */
