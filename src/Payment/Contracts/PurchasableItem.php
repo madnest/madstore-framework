@@ -19,6 +19,13 @@ interface PurchasableItem
     public function getAmount(): int;
 
     /**
+     * Get PurchasableItem price
+     *
+     * @return integer
+     */
+    public function getPrice(): float;
+
+    /**
      * Get PurchasableItem quantity
      *
      * @return integer
