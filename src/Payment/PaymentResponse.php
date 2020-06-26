@@ -95,6 +95,18 @@ class PaymentResponse extends Response
         return $this->redirectUrl;
     }
 
+    public function setGateway(string $gateway): self
+    {
+        $this->gateway = $gateway;
+
+        return $this;
+    }
+
+    public function getGateway(): string
+    {
+        return $this->gateway;
+    }
+
     public function setRedirect(bool $redirect): self
     {
         $this->redirect = $redirect;
