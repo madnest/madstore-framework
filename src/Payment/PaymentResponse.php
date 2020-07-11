@@ -119,6 +119,18 @@ class PaymentResponse extends Response
         return $this->redirect;
     }
 
+    public function setEetCode(string $eetCode): self
+    {
+        $this->eetCode = $eetCode;
+
+        return $this;
+    }
+
+    public function getEetCode(): bool
+    {
+        return $this->eetCode;
+    }
+
     public function setErrors(array $errors): self
     {
         $this->errors = $errors;
