@@ -6,11 +6,31 @@ use Madnest\Madstore\Core\Response;
 
 class PaymentResponse extends Response
 {
-    public function __construct(int $statusCode, string $status)
+    /**
+     * Required PaymentResponse parameter keys
+     */
+    protected array $required = [
+        'statusCode', 'status', 'orderNumber', 'amount', 'currency', 'paymentMethod', 'gateway'
+    ];
+
+    public function __construct(array $params)
+    {
+        $this->response = $params;
+    }
+
+    public function isSuccessfull(): bool
+    {
+        return $this->getStatusCode() === 200;
+    }
+
+    public function hasErrors(): bool
+    {
+        return is_array($this->getErrors()) && !empty($this->getErrors());
+    }
+
+    public function setStatusCode(int $statusCode): void
     {
         $this->statusCode = $statusCode;
-
-        $this->status = $status;
     }
 
     public function getStatusCode(): int
@@ -18,16 +38,19 @@ class PaymentResponse extends Response
         return $this->statusCode;
     }
 
+    public function setStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+
     public function getStatus(): string
     {
         return $this->status;
     }
 
-    public function setOrderNumber(string $orderNumber): self
+    public function setOrderNumber(string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
-
-        return $this;
     }
 
     public function getOrderNumber(): string
@@ -35,11 +58,9 @@ class PaymentResponse extends Response
         return $this->orderNumber;
     }
 
-    public function setAmount(int $amount): self
+    public function setAmount(int $amount): void
     {
         $this->amount = $amount;
-
-        return $this;
     }
 
     public function getAmount(): int
@@ -47,11 +68,9 @@ class PaymentResponse extends Response
         return $this->amount;
     }
 
-    public function setCurrency(string $currency): self
+    public function setCurrency(string $currency): void
     {
         $this->currency = $currency;
-
-        return $this;
     }
 
     public function getCurrency(): string
@@ -59,11 +78,9 @@ class PaymentResponse extends Response
         return $this->currency;
     }
 
-    public function setPaymentMethod(string $paymentMethod): self
+    public function setPaymentMethod(string $paymentMethod): void
     {
         $this->paymentMethod = $paymentMethod;
-
-        return $this;
     }
 
     public function getPaymentMethod(): string
@@ -71,35 +88,9 @@ class PaymentResponse extends Response
         return $this->paymentMethod;
     }
 
-    public function setPayer(array $payer): self
-    {
-        $this->payer = $payer;
-
-        return $this;
-    }
-
-    public function getPayer(): string
-    {
-        return $this->payer;
-    }
-
-    public function setRedirectUrl(string $redirectUrl): self
-    {
-        $this->redirectUrl = $redirectUrl;
-
-        return $this;
-    }
-
-    public function getRedirectUrl(): ?string
-    {
-        return $this->redirectUrl;
-    }
-
-    public function setGateway(string $gateway): self
+    public function setGateway(string $gateway): void
     {
         $this->gateway = $gateway;
-
-        return $this;
     }
 
     public function getGateway(): string
@@ -107,11 +98,29 @@ class PaymentResponse extends Response
         return $this->gateway;
     }
 
-    public function setRedirect(bool $redirect): self
+    public function setPayerInfo(array $payerInfo): void
+    {
+        $this->payerInfo = $payerInfo;
+    }
+
+    public function getPayerInfo(): string
+    {
+        return $this->payerInfo;
+    }
+
+    public function setRedirectUrl(string $redirectUrl): void
+    {
+        $this->redirectUrl = $redirectUrl;
+    }
+
+    public function getRedirectUrl(): ?string
+    {
+        return $this->redirectUrl;
+    }
+
+    public function setRedirect(bool $redirect): void
     {
         $this->redirect = $redirect;
-
-        return $this;
     }
 
     public function getRedirect(): bool
@@ -119,11 +128,9 @@ class PaymentResponse extends Response
         return $this->redirect;
     }
 
-    public function setEetCode(string $eetCode): self
+    public function setEetCode(string $eetCode): void
     {
         $this->eetCode = $eetCode;
-
-        return $this;
     }
 
     public function getEetCode(): bool
@@ -131,15 +138,22 @@ class PaymentResponse extends Response
         return $this->eetCode;
     }
 
-    public function setErrors(array $errors): self
+    public function setErrors(array $errors): void
     {
         $this->errors = $errors;
-
-        return $this;
     }
 
     public function getErrors(): array
     {
         return $this->errors;
+    }
+
+    protected function checkRequiredKeys(array $params)
+    {
+        foreach ($this->required as $key) {
+            if (!array_key_exists($key, $params)) {
+                throw new \InvalidArgumentException("Argument {$key} is missing from parameters.");
+            }
+        }
     }
 }
