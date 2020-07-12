@@ -102,9 +102,9 @@ interface Purchasable
     public function getPaymentOption(): PaymentOption;
 
     /**
-     * Get PayableItem
+     * Get PaymentOptionItem
      *
-     * @return PayableItem
+     * @return PaymentOptionItem
      */
-    public function getPayableItem(): PayableItem;
+    public function getPaymentOptionItem(): PaymentOptionItem;
 }
