@@ -2,7 +2,7 @@
 
 namespace Madnest\Madstore\Payment\Contracts;
 
-interface PayableItem
+interface PaymentOptionItem
 {
     /**
      * Get Payment option title
