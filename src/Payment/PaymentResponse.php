@@ -2,20 +2,23 @@
 
 namespace Madnest\Madstore\Payment;
 
+use Illuminate\Support\Str;
 use Madnest\Madstore\Core\Response;
 
 class PaymentResponse extends Response
 {
-    /**
-     * Required PaymentResponse parameter keys
-     */
-    protected array $required = [
-        'statusCode', 'status', 'orderNumber', 'amount', 'currency', 'paymentMethod', 'gateway'
-    ];
-
     public function __construct(array $params)
     {
-        $this->response = $params;
+        $this->checkRequiredKeys($params);
+
+        foreach ($params as $key => $value) {
+            $method = 'set' . ucfirst(Str::camel($key));
+            if (!method_exists($this, $method)) {
+                throw new \BadMethodCallException("Method {$method} does not exist.");
+            }
+
+            $this->{$method}($value);
+        }
     }
 
     public function isSuccessfull(): bool
@@ -38,7 +41,7 @@ class PaymentResponse extends Response
         return $this->statusCode;
     }
 
-    public function setStatus(int $status): void
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }
@@ -150,7 +153,9 @@ class PaymentResponse extends Response
 
     protected function checkRequiredKeys(array $params)
     {
-        foreach ($this->required as $key) {
+        $required = ['statusCode', 'status', 'orderNumber', 'amount', 'currency', 'paymentMethod', 'gateway'];
+
+        foreach ($required as $key) {
             if (!array_key_exists($key, $params)) {
                 throw new \InvalidArgumentException("Argument {$key} is missing from parameters.");
             }
