@@ -67,6 +67,13 @@ interface Purchasable
     public function getFinalAmount(): int;
 
     /**
+     * Get final price
+     *
+     * @return integer
+     */
+    public function getFinalPrice(): float;
+
+    /**
      * Get Purchasable items collection
      *
      * @return Collection
