@@ -131,6 +131,16 @@ class PaymentResponse extends Response
         return $this->redirect;
     }
 
+    public function setClientSecret(string $clientSecret): void
+    {
+        $this->clientSecret = $clientSecret;
+    }
+
+    public function getClientSecret(): string
+    {
+        return $this->clientSecret;
+    }
+
     public function setEetCode(string $eetCode): void
     {
         $this->eetCode = $eetCode;
