@@ -136,7 +136,7 @@ class PaymentResponse extends Response
         $this->eetCode = $eetCode;
     }
 
-    public function getEetCode(): bool
+    public function getEetCode(): string
     {
         return $this->eetCode;
     }
