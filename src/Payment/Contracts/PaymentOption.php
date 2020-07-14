@@ -20,8 +20,8 @@ interface PaymentOption
     /**
      * Get status of payment
      *
-     * @param int $id
+     * @param mixed $id
      * @return PaymentResponse
      */
-    public function getStatus(int $id): PaymentResponse;
+    public function getStatus($id): PaymentResponse;
 }
