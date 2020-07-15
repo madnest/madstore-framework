@@ -106,7 +106,7 @@ class PaymentResponse extends Response
         $this->payerInfo = $payerInfo;
     }
 
-    public function getPayerInfo(): string
+    public function getPayerInfo(): ?array
     {
         return $this->payerInfo;
     }
@@ -126,7 +126,7 @@ class PaymentResponse extends Response
         $this->redirect = $redirect;
     }
 
-    public function getRedirect(): bool
+    public function getRedirect(): ?bool
     {
         return $this->redirect;
     }
@@ -136,7 +136,7 @@ class PaymentResponse extends Response
         $this->clientSecret = $clientSecret;
     }
 
-    public function getClientSecret(): string
+    public function getClientSecret(): ?string
     {
         return $this->clientSecret;
     }
@@ -146,7 +146,7 @@ class PaymentResponse extends Response
         $this->eetCode = $eetCode;
     }
 
-    public function getEetCode(): string
+    public function getEetCode(): ?string
     {
         return $this->eetCode;
     }
