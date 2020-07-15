@@ -111,6 +111,16 @@ class PaymentResponse extends Response
         return $this->payerInfo;
     }
 
+    public function setPaymentId(string $paymentId): void
+    {
+        $this->paymentId = $paymentId;
+    }
+
+    public function getPaymentId(): ?string
+    {
+        return $this->paymentId;
+    }
+
     public function setRedirectUrl(string $redirectUrl): void
     {
         $this->redirectUrl = $redirectUrl;
